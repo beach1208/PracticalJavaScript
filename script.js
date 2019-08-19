@@ -39,10 +39,11 @@ let toDoList = {
         this.displayTodos();
     },
     toggleCompleted: function(position){
-        let todo = this.todos[position];  
-        // grabbing and referencing specific todo
-        todo.completed = !todo.completed;
-        // first get true or false of completed and change to the opposite of it
+        debugger;
+            let todo = this.todos[position];  
+            // grabbing and referencing specific todo
+            todo.completed = !todo.completed;
+            // first get true or false of completed and change to the opposite of it
 
         this.displayTodos();
     },
@@ -72,25 +73,11 @@ let toDoList = {
 };
 
 
-// It should have a function to display todos
-function displayTodos(){
-    console.log("My todos:",todos);
-}
-
-// // It should hace a function to add todos
-function addTodos(todo){
-    todos.push(todo);
-    displayTodos();
-}
-
-// // It should have a function to change todos.
-function changeTodos(position,newValue){
-    todos[position] = newValue;
-    displayTodos();
-}
-
-// // It should have a function to delete todos
-function deleteTodos(position){
-    todos.splice(position,1)
-    displayTodos();
+const handlers = {
+    displayTodos: function(){
+        toDoList.displayTodos();
+    },
+    toggleAll: function() {
+        toDoList.toggleAll();
+    }
 }
