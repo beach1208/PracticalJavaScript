@@ -39,11 +39,10 @@ let toDoList = {
         this.displayTodos();
     },
     toggleCompleted: function(position){
-        debugger;
-            let todo = this.todos[position];  
-            // grabbing and referencing specific todo
-            todo.completed = !todo.completed;
-            // first get true or false of completed and change to the opposite of it
+        let todo = this.todos[position];  
+        // grabbing and referencing specific todo
+        todo.completed = !todo.completed;
+        // first get true or false of completed and change to the opposite of it
 
         this.displayTodos();
     },
@@ -76,6 +75,25 @@ let toDoList = {
 const handlers = {
     displayTodos: function(){
         toDoList.displayTodos();
+    },
+    addTodo: function(){
+        let addTodoTextInput = document.getElementById('addTodoTextInput')
+        toDoList.addTodo(addTodoTextInput.value);
+        addTodoTextInput.value = '';
+    },
+    changeTodo: function(){
+        let changeTodoPositionInput = document.getElementById('changeTodoPositionInput');
+        let changeTodoTextInput = document.getElementById('changeTodoTextInput');
+        toDoList.changeTodos(changeTodoPositionInput.valueAsNumber,changeTodoTextInput.value);
+        changeTodoTextInput.value = '';
+    },
+    deleteTodo: function(){
+        let deleteTodoPositionInput = document.getElementById('deleteTodoPositionInput');
+        toDoList.deleteTodos(deleteTodoPositionInput.valueAsNumber);
+    },
+    toggleCompleted: function(){
+        let toggleCompletedPositionInput = document.getElementById('toggleCompletedPositionInput');
+        toDoList.toggleCompleted(toggleCompletedPositionInput.valueAsNumber);
     },
     toggleAll: function() {
         toDoList.toggleAll();
